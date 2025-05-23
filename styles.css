@@ -1,0 +1,207 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('background/10141608.jpg'); /* Background image */
+    background-size: cover; /* Cover the entire background */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-attachment: fixed; /* Fix the background image */
+    background-color: red; /* Fallback background color */
+    color: #333;
+    min-height: 100vh; /* Ensure body is at least viewport height */
+    padding-bottom: 60px; /* Add padding at the bottom to avoid content being hidden by fixed footer */
+    filter: none; /* Remove blur from the body */
+}
+
+header {
+    color: #fff;
+    padding: 10px 10px 10px 10px; /* Equal padding top, right, bottom, left */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space out header content */
+    align-items: center; /* Vertically align items */
+    position: fixed; /* Fix the header position */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: top 0.3s ease-in-out;
+}
+
+.header-hidden {
+    top: -80px; /* Adjust based on approximate header height */
+}
+
+.site-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    background-color: rgba(0, 123, 255, 0.8); /* Apply semi-transparent blue background */
+    padding: 5px 10px; /* Add padding around the title */
+    border-radius: 5px; /* Optional: add some rounding */
+    backdrop-filter: blur(5px); /* Apply blur effect to the title background */
+}
+
+.search-bar-wrapper {
+    margin-left: 20px; /* Space between nav and search */
+    padding: 5px 10px; /* Add padding around the search bar content */
+    background-color: rgba(0, 123, 255, 0.8); /* Apply semi-transparent blue background */
+    border-radius: 5px; /* Optional: add some rounding */
+    backdrop-filter: blur(5px); /* Apply blur effect */
+}
+
+.search-container input[type="text"] {
+    padding: 8px;
+    border: none;
+    border-radius: 4px 0 0 4px; /* Rounded left corners */
+    outline: none; /* Remove default outline */
+    transition: all 0.3s ease-in-out; /* Add a smooth transition */
+}
+
+.search-container input[type="text"]:focus {
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a blue glow effect on focus */
+    border-color: #007bff; /* Change border color (optional, as outline is removed) */
+}
+
+.search-container button[type="submit"] {
+    padding: 8px 15px;
+    background-color: #0056b3; /* Darker blue for button */
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0; /* Rounded right corners */
+    cursor: pointer;
+    outline: none;
+}
+
+.search-container button[type="submit"]:hover {
+    background-color: #004085; /* Even darker blue on hover */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Arrange menu items in a row */
+}
+
+nav ul li {
+    margin-left: 20px; /* Add space between menu items */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff; /* White text color for menu items */
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Subtle highlight on hover */
+}
+
+nav {
+    margin: auto; /* Center the navigation menu */
+}
+
+main {
+    padding: 20px;
+    opacity: 1; /* Default opacity */
+    visibility: visible; /* Default visibility */
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; /* Smooth transition */
+    margin-top: 80px; /* Add top margin to create space below the fixed header */
+    margin-bottom: 60px; /* Add bottom margin to create space above the fixed footer */
+}
+
+/* Class to hide the main content */
+.main-hidden {
+    opacity: 0; /* Hide content */
+    visibility: hidden; /* Prevent interaction when hidden */
+}
+
+.book-container {
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow boxes to wrap to the next line */
+    gap: 16px; /* Adjust pixel gap between the boxes */
+    padding: 20px; /* Add padding inside the container */
+    justify-content: flex-start; /* Align boxes to the left */
+    direction: ltr; /* Ensure boxes are arranged from left to right */
+}
+
+.book-box {
+    flex-grow: 1; /* Allow box to grow to fill available space */
+    flex-shrink: 0; /* Prevent box from shrinking below its base size */
+    flex-basis: calc(20% - 16px); /* Set a base size to aim for roughly 5 boxes per row, accounting for gap */
+    aspect-ratio: 3 / 4; /* Optional: Maintain an aspect ratio for the boxes (like a book) */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 8px; /* Add rounded corners */
+    padding: 10px; /* Add internal padding */
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    direction: ltr; /* Ensure text inside box is left-to-right */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Add transition for smooth effects */
+}
+
+.book-box:hover {
+    transform: translateY(-5px); /* Lift the box slightly on hover */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+.book-box-with-cover {
+    /* Set the background image */
+    background-size: cover; /* Make the background image cover the entire box */
+    background-position: center; /* Center the background image */
+    /* Remove default background color if any */
+    background-color: transparent !important;
+}
+
+.book-box img {
+    max-width: 100%; /* Ensure image fits within the box width */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 5px; /* Add some space between the image and the title */
+}
+
+.book-box .book-title {
+    text-align: center; /* Center the book title text */
+}
+
+.book-box a {
+    text-decoration: none; /* Remove underline from the link */
+    color: black; /* Set text color to black */
+    font-weight: bold;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    width: 100%; /* Make the link fill the box */
+    height: 100%; /* Make the link fill the box */
+    padding: 10px; /* Add padding to the link content */
+    box-sizing: border-box; /* Include padding in the link's total size */
+}
+
+section {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    width: 100%;
+}
+
+/* Add a class to hide the footer by moving it down */
+.footer-hidden {
+    bottom: -50px; /* Adjust based on approximate footer height */
+} 
